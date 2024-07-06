@@ -1,5 +1,5 @@
 {
-  "name": "@paddle/paddle-node-sdk",
+  "name": "@wytxer/paddle-node-sdk",
   "version": "1.4.1",
   "description": "A Node.js SDK that you can use to integrate Paddle Billing with applications written in server-side JavaScript.",
   "main": "./dist/cjs/index.js",
@@ -32,10 +32,12 @@
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.22.20",
     "@babel/preset-typescript": "^7.23.0",
+    "@types/crypto-js": "^4.2.2",
     "@types/jest": "^29.5.6",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.6.0",
     "@types/node-fetch": "^2.6.6",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "babel-jest": "^29.7.0",
     "dotenv": "^16.3.1",
@@ -49,7 +51,9 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "lodash": "^4.17.21",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "uuid": "^10.0.0"
   }
 }

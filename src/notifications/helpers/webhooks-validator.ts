@@ -1,11 +1,13 @@
-import { createHmac } from 'node:crypto';
+import { HmacSHA256, enc } from 'crypto-js';
 
 interface ParsedHeaders {
   ts: number;
   h1: string;
 }
+
 export class WebhooksValidator {
   private static readonly MAX_VALID_TIME_DIFFERENCE = 5;
+
   private extractHeader(header: string): ParsedHeaders {
     const parts = header.split(';');
     let ts = '';
@@ -35,10 +37,8 @@ export class WebhooksValidator {
       return false;
     }
 
-    const hmac = createHmac('sha256', secretKey);
-    hmac.update(payloadWithTime);
-
-    const computedHash = hmac.digest('hex');
+    const hmac = HmacSHA256(payloadWithTime, secretKey);
+    const computedHash = enc.Hex.stringify(hmac);
     return computedHash === headers.h1;
   }
 }

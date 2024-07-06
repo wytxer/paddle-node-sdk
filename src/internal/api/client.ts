@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 import { SDK_VERSION } from '../../version';
 import { type PaddleOptions } from '../types/config';
 import { Environment } from './environment';
-import { randomUUID } from 'node:crypto';
+import { v4 } from 'uuid';
 import { Logger } from '../base/logger';
 import { convertToSnakeCase } from './case-helpers';
 import { type ErrorResponse } from '../types/response';
@@ -28,7 +28,7 @@ export class Client {
   }
 
   private getHeaders() {
-    const uuid = randomUUID();
+    const uuid = v4();
 
     return {
       Authorization: `bearer ${this.apiKey}`,
